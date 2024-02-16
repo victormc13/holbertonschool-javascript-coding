@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-const fs = require('fs');
+import fs from 'fs';
 const argv = process.argv;
 
 const filePath = argv[2];
