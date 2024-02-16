@@ -1,10 +1,11 @@
 {
   "name": "my-cool-package",
   "devDependencies": {
-    "semistandard": "*"
+    "semistandard": "^17.0.0"
   },
   "scripts": {
-    "test": "semistandard"
+    "test": "semistandard",
+    "fix": "semistandard --fix"
   },
   "semistandard": {
     "ignore": [
