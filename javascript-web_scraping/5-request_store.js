@@ -9,9 +9,10 @@ request(url, (error, response, body) => {
   if (error) {
     console.log(error);
   } else {
-    const result = JSON.parse(body);
-    fs.writeFile(filePath, result, (error) => {
+    fs.writeFile(filePath, body, (error) => {
+      if (error) {
       console.log(error)
+      }
     })
   }
 });
