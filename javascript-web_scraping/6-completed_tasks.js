@@ -13,7 +13,7 @@ request(apiUrl, async (error, response, body) => {
     todos.forEach((todo) => {
       if (todo.completed) {
         completedTaskByUserId[todo.userId] =
-          (completedTaskByUserId[todo.userId] || 0) + 1;
+          (completedTaskByUserId[todo.userId]?? 0) + 1;
       }
     });
     console.log(completedTaskByUserId);
