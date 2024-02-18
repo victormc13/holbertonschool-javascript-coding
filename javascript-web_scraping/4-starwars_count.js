@@ -10,7 +10,9 @@ request(apiUrl, (error, response, body) => {
     console.log(error);
   } else {
     const films = JSON.parse(body).results;
-    const filteredFilms = films.filter(film => film.characters.includes(character));
+    const filteredFilms = films.filter((film) =>
+      film.characters.includes(character)
+    );
     const numberOfFilms = filteredFilms.length;
     console.log(numberOfFilms);
   }
