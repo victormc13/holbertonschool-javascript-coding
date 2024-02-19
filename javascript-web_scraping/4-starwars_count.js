@@ -3,7 +3,6 @@
 const request = require('request');
 const apiUrl = process.argv[2];
 const characterId = 18;
-// const character = `https://swapi-api.hbtn.io/api/people/${characterId}/`;
 
 request(apiUrl, (error, response, body) => {
   if (error) {
