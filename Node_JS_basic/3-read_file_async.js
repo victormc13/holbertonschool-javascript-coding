@@ -27,7 +27,7 @@ function countStudents(filePath) {
             .map((student) => student[0]);
 
           return `Number of students in ${field}: ${count}. List: ${studentNames.join(', ')}`;
-        }
+        },
       );
 
       console.log(`Number of students: ${totalStudents}`);
