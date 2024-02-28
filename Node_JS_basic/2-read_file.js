@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-function countStudents (filePath) {
+function countStudents(filePath) {
   if (fs.existsSync(filePath)) {
     const data = fs.readFileSync(filePath, 'utf-8');
     const lines = data.split('\n').filter((line) => line.length > 0);
@@ -28,4 +28,4 @@ function countStudents (filePath) {
   }
 }
 
-module.expots = countStudents;
+module.exports = countStudents;
