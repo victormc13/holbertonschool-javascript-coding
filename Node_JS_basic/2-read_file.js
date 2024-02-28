@@ -9,7 +9,7 @@ function countStudents (filePath) {
 
     const fieldCounts = students.reduce((acc, student) => {
       const field = student[3];
-      acc[field] = (acc[field] ?? 0) + 1;
+      acc[field] = (acc[field] || 0) + 1;
       return acc;
     }, {});
 
