@@ -26,16 +26,14 @@ function countStudents(filePath) {
             .filter((student) => student[3] === field)
             .map((student) => student[0]);
 
-          return `Number of students in ${field}: ${count}. List: ${studentNames.join(
-            ', '
-          )}`;
+          return `Number of students in ${field}: ${count}. List: ${studentNames.join(', ')}`;
         }
       );
 
       console.log(`Number of students: ${totalStudents}`);
       formattedFieldLists.forEach((message) => console.log(message));
 
-      resolve(process.exit(0));
+      return resolve(process.exit(0));
     });
   });
 }
