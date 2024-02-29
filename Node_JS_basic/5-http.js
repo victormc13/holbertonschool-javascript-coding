@@ -17,7 +17,7 @@ const app = http.createServer((req, res) => {
         res.end('This is the list of our students\n' + data);
       }).catch((error) => {
         res.writeHead(500, { 'Content-Type': 'text/plain' });
-        res.end('Internal Server Error: ' + error);
+        res.end('This is the list of our students\n' + error);
       });
     } else {
       res.end('This is the list of our students\nCannot load the database');
