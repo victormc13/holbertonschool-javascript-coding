@@ -1,5 +1,5 @@
 const http = require('http');
-const countStudents = require('./3-read_file_async.js');
+const countStudents = require('./3-read_file_async');
 
 const hostname = 'localhost';
 const port = 1245;
@@ -14,10 +14,10 @@ const app = http.createServer((req, res) => {
       const message = countStudents(database);
       message.then((data) => {
         res.writeHead(200, { 'Content-Type': 'text/plain' });
-        res.end('This is the list of our students\n' + data);
+        res.end(`This is the list of our students\n${data}`);
       }).catch((error) => {
         res.writeHead(500, { 'Content-Type': 'text/plain' });
-        res.end('This is the list of our students\n' + error.message);
+        res.end(`This is the list of our students\n${error.message}`);
       });
     }
   } else {
