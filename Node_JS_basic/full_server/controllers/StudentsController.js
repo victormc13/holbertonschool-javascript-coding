@@ -27,7 +27,7 @@ export default class StudentsController {
       }
 
       const data = await readDatabase(database);
-      const filteredData = data.find(fieldData => fieldData.field === major.toUpperCase());
+      const filteredData = data.find((fieldData) => fieldData.field === major.toUpperCase());
 
       if (!filteredData) {
         res.status(404).send('No students found in this major');
