@@ -11,7 +11,7 @@ const app = http.createServer(async (req, res) => {
   } else if (req.url === '/students') {
     res.end('This is the list of our students');
 
-    const database = process.argv[2] ?? '';
+    const database = process.argv[2] || '';
     const message = await countStudents(database);
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end(message);
