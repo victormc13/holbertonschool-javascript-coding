@@ -17,10 +17,8 @@ const app = http.createServer((req, res) => {
         res.end('This is the list of our students\n' + data);
       }).catch((error) => {
         res.writeHead(500, { 'Content-Type': 'text/plain' });
-        res.end('This is the list of our students\n' + error);
+        res.end('This is the list of our students\n' + error.message);
       });
-    } else {
-      res.end('This is the list of our students\nCannot load the database');
     }
   } else {
     res.writeHead(404, { 'Content-Type': 'text/plain' });
