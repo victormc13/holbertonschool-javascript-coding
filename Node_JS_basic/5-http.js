@@ -14,7 +14,7 @@ const app = http.createServer(async (req, res) => {
     const database = process.argv[2];
     const message = await countStudents(database);
     res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end(message);
+    res.end(message ? message : 'Cannot load the database');
   } else {
     res.writeHead(404, { 'Content-Type': 'text/plain' });
     res.end('Not found');
