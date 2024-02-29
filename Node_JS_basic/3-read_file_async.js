@@ -5,7 +5,6 @@ function countStudents(filePath) {
     fs.readFile(filePath, 'utf-8', (err, data) => {
       if (err) {
         reject(new Error('Cannot load the database'));
-        return
       }
 
       const lines = data
