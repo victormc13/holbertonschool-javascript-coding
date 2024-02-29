@@ -11,12 +11,10 @@ const app = http.createServer(async (req, res) => {
   } else if (req.url === '/students') {
     res.end('This is the list of our students');
 
-    const database = process.argv[2];
-    if (database) {
-      const message = await countStudents(database);
-      res.writeHead(200, { 'Content-Type': 'text/plain' });
-      res.end(message);
-    }
+    const database = process.argv[2] ?? '';
+    const message = await countStudents(database);
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end(message);
   } else {
     res.writeHead(404, { 'Content-Type': 'text/plain' });
     res.end('Not found');
