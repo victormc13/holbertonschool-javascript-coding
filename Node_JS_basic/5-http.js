@@ -4,20 +4,24 @@ const countStudents = require('./3-read_file_async.js');
 const hostname = 'localhost';
 const port = 1245;
 
-const app = http.createServer(async (req, res) => {
+const app = http.createServer((req, res) => {
   if (req.url === '/') {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('Hello Holberton School!');
   } else if (req.url === '/students') {
-
     const database = process.argv[2];
     if (database) {
-      const message = await countStudents(database);
-      res.writeHead(200, { 'Content-Type': 'text/plain' });
-      res.end('This is the list of our students\n' + message);
+      const message = countStudents(database);
+      message.then((data) => {
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.end('This is the list of our students\n' + data);
+      }).catch((error) => {
+        res.writeHead(500, { 'Content-Type': 'text/plain' });
+        res.end('Internal Server Error: ' + error);
+      });
     } else {
-        res.end('This is the list of our students\nCannot load the database');
-      }
+      res.end('This is the list of our students\nCannot load the database');
+    }
   } else {
     res.writeHead(404, { 'Content-Type': 'text/plain' });
     res.end('Not found');
